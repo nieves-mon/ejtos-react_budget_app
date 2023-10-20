@@ -2,10 +2,13 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 const AllocationForm = () => {
-  const { dispatch, remaining } = useContext(AppContext);
+  const { dispatch, remaining, currencies, currentCurrencyId } =
+    useContext(AppContext);
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const [action, setAction] = useState("");
+
+  const currentCurrency = currencies[currentCurrencyId];
 
   const submitEvent = () => {
     if (cost > remaining) {
@@ -83,7 +86,7 @@ const AllocationForm = () => {
             </option>
           </select>
 
-          <span style={{ marginLeft: "2rem" }}>£</span>
+          <span style={{ marginLeft: "2rem" }}>{currentCurrency.symbol}</span>
           <input
             required="required"
             type="number"
