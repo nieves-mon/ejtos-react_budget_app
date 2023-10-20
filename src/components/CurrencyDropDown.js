@@ -12,16 +12,18 @@ const CurrencyDropDown = () => {
   };
 
   return (
-    <select
-      className="alert alert-success"
-      onChange={(e) => changeCurrency(e.target.value)}
-    >
-      {currencies.map((currency, idx) => (
-        <option value={idx}>
-          {currency.symbol} {currency.label}
-        </option>
-      ))}
-    </select>
+    <div className="alert alert-success">
+      <select
+        className="bg-transparent border-0 input-group"
+        onChange={(e) => changeCurrency(e.target.value)}
+      >
+        {currencies.map((currency, idx) => (
+          <option value={idx} className="alert-success alert">
+            {currency.symbol} {currency.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 

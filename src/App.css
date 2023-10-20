@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.currency-dropdown {
+  color: #fff;
+  background-color: #008000;
+}
